@@ -64,3 +64,5 @@ end
 
 # API Connect [https://graphql-ruby.org/]
 gem "graphql"
+
+gem 'devise','4.9.4'
