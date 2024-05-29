@@ -1,11 +1,13 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 
-export default function Root() {
+function Root() {
   return (
     <>
-      <header style={{ fontSize: '20px' }}>React + Rails GraphQLテスト</header>
+      <header style={{ fontSize: '20px' }}>予約システムテスト</header>
       <Outlet />
     </>
   );
 }
+
+export default Root;

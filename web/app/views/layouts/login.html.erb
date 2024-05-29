@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ログイン</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "application" %>
+  </head>
+  <body>
+    <div id="login-form"></div>
+    <%= javascript_include_tag "application" %>
+    <script>
+      ReactDOM.render(
+        <LoginForm />,
+        document.getElementById('login-form')
+      );
+    </script>
+  </body>
+</html>

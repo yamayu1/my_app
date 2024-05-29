@@ -1,18 +1,19 @@
 {
   "name": "app",
-  "private": "true",
+  "version": "1.0.0",
   "scripts": {
     "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds",
     "lint": "tsc --noEmit && eslint 'app/javascript/**/*.{ts,tsx}'",
     "format": "yarn prettier --check 'app/javascript/**'"
   },
   "dependencies": {
-    "@graphiql/toolkit": "^0.8.0",
+    "@graphiql/toolkit": "^0.8.4",
     "esbuild": "^0.16.8",
     "graphiql": "^2.2.0",
     "graphql": "^16.6.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "^18.3.1",
+    "react-datepicker": "^6.9.0",
+    "react-dom": "^18.3.1",
     "react-router-dom": "^6.5.0"
   },
   "devDependencies": {
