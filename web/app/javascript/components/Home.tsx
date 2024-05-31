@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -10,14 +9,14 @@ function Home() {
   return (
     <>
       <h1>Hello World</h1>
-      <Link to="/login" style={buttonStyle}>新規登録</Link>
+      <a href="users/sign_up" style={buttonStyle}>新規登録</a>
       <div className="form-check">
         <input
           type="datetime-local"
           value={selected}
           onChange={(event) => setSelected(event.target.value)}
         ></input>
-        <div>{selected.replace("T", " ")}が選択されました！</div>
+        <div>{selected && selected.replace("T", " ")}が選択されました！</div>
       </div>
       <DatePicker
         dateFormat="yyyy/MM/dd HH:mm"
