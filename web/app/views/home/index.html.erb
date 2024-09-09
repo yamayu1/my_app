@@ -3,9 +3,16 @@
 <head>
   <title>React App</title>
 </head>
-<body>
-  <h1>テスト</h1>
-  <%= javascript_include_tag "Home"%>
+<body>  
+  <% if user_signed_in? %>
+    <p>ログインしています。</p>
+    <%= link_to 'ログアウト', destroy_user_session_path, method: :delete%>
+  <% else %>
+    <p>ログインされていません。</p>
+    <a href="<%= new_user_registration_path %>" style="color: blue; text-decoration: underline;">新規登録</a>
+  <% end %>
+  
+  <%= javascript_include_tag "Home" %>
   <div id="root"></div>
 </body>
 </html>

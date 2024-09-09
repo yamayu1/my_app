@@ -9,7 +9,6 @@ function Home() {
   return (
     <>
       <h1>Hello World</h1>
-      <a href="users/sign_up" style={buttonStyle}>新規登録</a>
       <div className="form-check">
         <input
           type="datetime-local"
