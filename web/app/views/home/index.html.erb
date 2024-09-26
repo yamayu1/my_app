@@ -6,13 +6,15 @@
 <body>  
   <% if user_signed_in? %>
     <p>ログインしています。</p>
+    <a href="/your_trips" style="color: blue; text-decoration: underline;">予約内容確認</a><br>
     <%= link_to 'ログアウト', destroy_user_session_path, method: :delete%>
+    <%= javascript_include_tag "Home" %>
+    <div id="root"></div>  
   <% else %>
     <p>ログインされていません。</p>
     <a href="<%= new_user_registration_path %>" style="color: blue; text-decoration: underline;">新規登録</a>
+    <a href="/users/sign_in" style="color: blue; text-decoration: underline;">ログイン</a>
   <% end %>
   
-  <%= javascript_include_tag "Home" %>
-  <div id="root"></div>
 </body>
 </html>

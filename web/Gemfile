@@ -66,3 +66,6 @@ end
 gem "graphql"
 
 gem 'devise','4.9.4'
+
+gem "simple_calendar", "~> 2.0"
+

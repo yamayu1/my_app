@@ -1,0 +1,16 @@
+<% if @trips.any? %>
+  <h1 class="card-title text-danger h3 font1">予約内容</h1>
+  <% @trips.each do |trip| %>
+    <div class="card mt-4">
+      <div class="card-body">
+        <ul class="list-group">
+          <li class="list-group-item">予約ID: <%= trip.id %></li>
+          <li class="list-group-item">日付: <%= trip.date %></li>
+          <%= button_to '削除', reservation_path(trip), method: :delete %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+<% else %>
+  <p>予約はありません。</p>
+<% end %>

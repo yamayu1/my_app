@@ -10,4 +10,5 @@ class User < ApplicationRecord
   validates :user_name, presence: true, length: { minimum: 3 }
   validates :name_kana, presence: true
   validates :tel, presence: true
+  has_many :reservations
 end

@@ -14,9 +14,7 @@ RUN yarn install --network-timeout 600000
 
 WORKDIR /myapp
 COPY Gemfile /myapp/Gemfile
-
 COPY Gemfile.lock /myapp/Gemfile.lock
-
 RUN bundle install
 
 COPY . /myapp
