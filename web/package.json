@@ -2,9 +2,10 @@
   "name": "app",
   "version": "1.0.0",
   "scripts": {
-    "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds",
+    "build": "esbuild app/javascript/**/*.* --bundle --sourcemap --outdir=app/assets/builds",
     "lint": "tsc --noEmit && eslint 'app/javascript/**/*.{ts,tsx}'",
-    "format": "yarn prettier --check 'app/javascript/**'"
+    "format": "yarn prettier --check 'app/javascript/**'",
+    "dev": "concurrently --prefix \"{time}\" -t \"HH:mm:ss\" -c \"bgCyan.bold,bgGreen.bold,bgGrey.bold\" -n \"esbuild,BrowserSync,Express\" \"npm run build:watch\" \"npm run browser:reload\" \"npm run serve:local\""
   },
   "dependencies": {
     "@graphiql/toolkit": "^0.8.4",

@@ -2,13 +2,13 @@
 <html>
 <head>
   <title>React App</title>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 </head>
 <body>  
   <% if user_signed_in? %>
     <p>ログインしています。</p>
     <a href="/your_trips" style="color: blue; text-decoration: underline;">予約内容確認</a><br>
     <%= link_to 'ログアウト', destroy_user_session_path, method: :delete%>
-    <%= javascript_include_tag "Home" %>
     <div id="root"></div>  
   <% else %>
     <p>ログインされていません。</p>
@@ -16,5 +16,21 @@
     <a href="/users/sign_in" style="color: blue; text-decoration: underline;">ログイン</a>
   <% end %>
   
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h1>予約画面</h1>
+        <p>3ヶ月先まで予約することができます。</p>
+      </div>
+      <div class="col-12 mt-3">
+        <%= week_calendar events: @reservations do |date, reservations| %>
+          <%= date.day %>
+      <% end %>
+    </div>
+    </div>
+  </div>
+  <%= javascript_include_tag "Home" %>
 </body>
 </html>
+
+

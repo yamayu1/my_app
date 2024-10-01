@@ -22,6 +22,9 @@ services:
       - mysql
     stdin_open: true
     tty: true
+    environment:
+      - ....
+      - CHOKIDAR_USEPOLLING=true
 
 volumes:
   mysql-data:
