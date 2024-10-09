@@ -34,7 +34,7 @@ function Home() {
 
   return (
     <>
-      <h1>予約アあああああああああああああプリ</h1>
+      <h1>予約アプリpublic/assetsテストsss</h1>
       <div className="form-check">
         <DatePicker
           selected={selectedDate}

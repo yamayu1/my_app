@@ -2,7 +2,8 @@
   "name": "app",
   "version": "1.0.0",
   "scripts": {
-    "build": "esbuild app/javascript/**/*.* --bundle --sourcemap --outdir=app/assets/builds",
+    "build:css": "esbuild app/assets/stylesheets/application.css --bundle --minify --sourcemap --outdir=app/assets/builds",
+    "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --loader:.js=jsx",
     "lint": "tsc --noEmit && eslint 'app/javascript/**/*.{ts,tsx}'",
     "format": "yarn prettier --check 'app/javascript/**'",
     "dev": "concurrently --prefix \"{time}\" -t \"HH:mm:ss\" -c \"bgCyan.bold,bgGreen.bold,bgGrey.bold\" -n \"esbuild,BrowserSync,Express\" \"npm run build:watch\" \"npm run browser:reload\" \"npm run serve:local\""

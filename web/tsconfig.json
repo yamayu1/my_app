@@ -23,5 +23,6 @@
   "include": [
     "app/javascrip",
     "./.eslintrc.js"
-  ]
+  ],
+  "outDir": "./app/assets/builds"
 }
