@@ -1,44 +1,61 @@
-<h2>新規登録</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :氏名 %><br />
-    <%= f.text_field :user_name, autofocus: true, autocomplete: "username" %>
+<%= stylesheet_link_tag 'sign_up', media: 'all', 'data-turbolinks-track': 'reload' %>
+<header class="site-header">
+  <div class="header-container">
+    <%= link_to root_path, class: "site-logo-link" do %>
+      <h1 class="site-logo">mizunophoto</h1>
+    <% end %>
   </div>
+</header>
+<div class="form-container">
+  <h2>新規登録</h2>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :ふりがな %><br />
-    <%= f.text_field :name_kana, autofocus: true, autocomplete: "namekana" %>
+    <div class="field">
+      <%= f.label :user_name, "氏名" %>
+      <span class="required">必須</span>
+      <%= f.text_field :user_name, autofocus: true, autocomplete: "username" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :name_kana, "ふりがな" %>
+      <span class="required">必須</span>
+      <%= f.text_field :name_kana, autocomplete: "namekana" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :tel, "電話番号" %>
+      <span class="required">必須</span>
+      <%= f.text_field :tel, autocomplete: "tel" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :email, "メールアドレス" %>
+      <span class="required">必須</span>
+      <%= f.email_field :email, autocomplete: "email" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password, "パスワード" %>
+      <span class="required">必須</span>
+      <%= f.password_field :password, autocomplete: "new-password" %>
+      <% if @minimum_password_length %>
+        <p class="field-note">(<%= @minimum_password_length %> 文字以上で入力してください)</p>
+      <% end %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password_confirmation, "パスワードの確認" %>
+      <span class="required">必須</span>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "登録" %>
+    </div>
+  <% end %>
+
+  <div class="login-link">
+    <%= link_to "ログイン", new_session_path(resource_name) %>
   </div>
-
-  <div class="field">
-    <%= f.label :電話番号 %><br />
-    <%= f.text_field :tel, autofocus: true, autocomplete: "tel" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :メールアドレス %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :パスワード %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> 文字以上で入力してください)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :パスワードの確認 %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "登録" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

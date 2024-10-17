@@ -1,7 +1,7 @@
-// import { createGraphiQLFetcher } from '@graphiql/toolkit';
-// import { GraphiQL } from 'graphiql';
-// // import 'graphiql/graphiql.css';
-// import React from 'react';
+import { createGraphiQLFetcher } from '@graphiql/toolkit';
+import { GraphiQL } from 'graphiql';
+import 'graphiql/graphiql.css';
+import React from 'react';
 
 // export default function Graphiql() {
 //   const fetcher = createGraphiQLFetcher({

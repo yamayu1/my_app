@@ -1,0 +1,77 @@
+.simple-calendar {
+  font-family: Arial, sans-serif; /* フォントファミリーを設定 */
+  margin-top: 20px; /* 上部の余白を設定 */
+}
+
+.simple-calendar table {
+  table-layout: fixed; /* テーブルのレイアウトを固定 */
+  border-collapse: separate; /* セルの重なりを防ぐ */
+  width: 100%; /* テーブルの幅を100%に設定 */
+  border: none; /* テーブルの境界線を削除 */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* テーブルに影を追加 */
+}
+
+.simple-calendar th,
+.simple-calendar td {
+  padding: 15px; /* パディングを設定 */
+  vertical-align: middle; /* 垂直方向の位置を中央に */
+  width: 14.285%; /* 各セルの幅を設定 */
+  border: 1px solid #ddd; /* セルの境界線を設定 */
+  text-align: center; /* テキストを中央揃え */
+}
+
+.simple-calendar th {
+  font-weight: bold; /* 太字に設定 */
+  background-color: #f1f1f1; /* 背景色を設定 */
+  color: #333; /* テキストの色を設定 */
+}
+
+.simple-calendar tr:hover {
+  background-color: #f9f9f9; /* ホバー時の背景色 */
+}
+
+.simple-calendar td {
+  transition: background-color 0.3s; /* 背景色の遷移を設定 */
+}
+
+.simple-calendar .text-primary {
+  color: #007bff; /* プライマリテキストの色を設定 */
+}
+
+.simple-calendar .text-danger {
+  color: #dc3545; /* エラーテキストの色を設定 */
+}
+
+.simple-calendar td:last-child,
+.simple-calendar th:last-child {
+  border-right: none; /* 最後の列の右境界線を削除 */
+}
+
+/* 今日の日付のスタイル */
+.simple-calendar .today {
+  background: #ffffd9; /* 今日の日付の背景色 */
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+  .simple-calendar table {
+    font-size: 14px; /* 小さい画面ではフォントサイズを小さく */
+  }
+
+  .simple-calendar th, .simple-calendar td {
+    padding: 10px; /* パディングを調整 */
+  }
+}
+
+.simple-calendar .reservation-indicator {
+  display: inline-block; /* インラインブロック要素として表示 */
+  font-size: 30px;
+  width: 20px; /* 幅を設定 */
+  height: 20px; /* 高さを設定 */
+  text-align: center; /* テキストを中央揃え */
+  line-height: 20px; /* 縦の中央揃えを実現 */
+  font-weight: bold; /* フォントを太字に設定 */
+  transition: background-color 0.3s; /* ホバー時の背景色の遷移を設定 */
+  cursor: pointer; /* カーソルをポインタに設定 */
+}
+

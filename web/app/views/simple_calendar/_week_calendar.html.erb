@@ -1,24 +1,43 @@
 <div class="simple-calendar">
-  <%= link_to "Previous", start_date: date_range.first - 1.day  %>
-  Week <%= start_date.strftime("%U").to_i %>
-  <%= link_to "Next", start_date: date_range.last + 1.day  %>
-
+  <%= link_to "前週", start_date: date_range.first - 1.day %>
+  <!-- Week <%= start_date.strftime("%U").to_i %> -->
+  <%= link_to "翌週", start_date: date_range.last + 1.day %>
+  <% reservations = Reservation.reservations_after_three_month %>
   <table class="table table-striped">
     <thead>
       <tr>
+        <th>時間</th>
         <% date_range.slice(0, 7).each do |day| %>
-          <th><%= I18n.t("date.abbr_day_names")[day.wday] %></th>
+          <th class="<%= 'text-primary' if day.saturday? %><%= 'text-danger' if day.sunday? %>">
+            <%= I18n.t("date.day_names")[day.wday] %>
+          </th>
         <% end %>
       </tr>
     </thead>
-
     <tbody>
-      <% date_range.each_slice(7) do |week| %>
+      <tr>
+        <td></td>
+        <% date_range.slice(0, 7).each do |day| %>
+          <%= content_tag :td, class: calendar.td_classes_for(day) do %>
+            <span class="<%= 'text-primary' if day.saturday? %><%= 'text-danger' if day.sunday? %>">
+              <%= day.day %>
+            </span>
+          <% end %>
+        <% end %>
+      </tr>
+      <% times.each do |time| %>
         <tr>
-          <% week.each do |day| %>
-            <%= content_tag :td, class: calendar.td_classes_for(day) do %>
-              <%= block.call day, sorted_events.fetch(day, []) %>
-            <% end %>
+          <td><%= time %></td>
+          <% date_range.slice(0, 7).each do |day| %>
+            <td>
+            <% if day.to_date < Date.today || check_reservation(reservations, day, time) %>
+                <%= '×' %>
+              <% else %>
+                <%= link_to new_reservation_path(day: day, time: time) do %>
+                  <span class="reservation-indicator">○</span>
+                 <% end %>
+              <% end %>
+            </td>
           <% end %>
         </tr>
       <% end %>

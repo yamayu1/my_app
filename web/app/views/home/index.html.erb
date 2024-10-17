@@ -1,6 +1,6 @@
-
 <div id="root"></div> 
 <%= javascript_include_tag "Home" %>
+<%= stylesheet_link_tag 'simple_calendar', media: 'all', 'data-turbolinks-track': 'reload' %>
 
 <% if user_signed_in? %>
   <p>ログインしています。</p>
@@ -8,24 +8,13 @@
   <%= link_to 'ログアウト', destroy_user_session_path, method: :delete%>
 
 <% else %>
-  <p>ログインされていません。</p>
-  <a href="<%= new_user_registration_path %>" style="color: blue; text-decoration: underline;">新規登録</a>
-  <a href="/users/sign_in" style="color: blue; text-decoration: underline;">ログイン</a>
-<% end %>
-
-<div class="container">
-  <div class="row">
-    <div class="col-12 text-center">
-      <h1>予約画面</h1>
-      <p>3ヶ月先まで予約することができます。</p>
-    </div>
-    <div class="col-12 mt-3">
-      <%= week_calendar events: @reservations do |date, reservations| %>
-        <%= date.day %>
-      <% end %>
-    </div>
+  <div class="login-test">
+    <p>ログインされていません。</p>
   </div>
-</div>  
+  <a href="<%= new_user_registration_path %>" style="color: blue; text-decoration: underline;">新規登録</a>
+  <a href="/users/sign_in" style="color: blue; text-decoration: underline;">ログイン</a><br>
+<% end %>
+<a href="/reservation" style="color: blue; text-decoration: underline;">予約する</a>
 
 
 

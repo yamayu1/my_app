@@ -1,0 +1,14 @@
+<%= stylesheet_link_tag 'simple_calendar', media: 'all', 'data-turbolinks-track': 'reload' %>
+<div class="container">
+  <div class="row">
+    <div class="col-12 text-center">
+      <h1>予約画面</h1>
+      <p>3ヶ月先まで予約することができます。</p>
+      <p><%= @date.strftime('%Y年%m月') %></p>
+    </div>
+    <div class="col-12 mt-3">
+      <%= week_calendar events: @reservations do |date, reservations| %>
+       <%= date.day %>
+      <% end %>
+    </div>
+  </div>
